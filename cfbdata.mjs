@@ -18,9 +18,6 @@ const fetchOptions = {
 const randomYear = getRandomYear();
 const randomWeek = Math.floor(Math.random() * 10 + 1);
 
-console.log(
-  `Fetching random player stats from a random game of the ${randomYear} regular season week ${randomWeek}...\n`
-);
 try {
   const res = await fetch(
     `${baseUrl}games/players?year=${randomYear}&week=${randomWeek}&seasonType=regular`,
@@ -37,9 +34,18 @@ try {
     ];
 
   console.log(
-    `${randomGame.teams[0].school} at ${randomGame.teams[1].school}\n`
+    `${randomGame.teams[0].school} @ ${randomGame.teams[1].school}, week ${randomWeek} ${randomYear} regular season 🏟 \n`
   );
-  console.log(`${randomStats.types[0].athletes[0].name}'s Stats:`);
+
+  const playersName = randomStats.types[0].athletes[0].name;
+  const playerRes = await fetch(
+    `${baseUrl}player/search?searchTerm=${playersName}&team=${randomTeam.school}`,
+    fetchOptions
+  );
+  const playerData = await playerRes.json();
+
+  console.log(`(${playerData[0]?.position}) ${playersName} 🏈\n`);
+  console.log(`${randomStats.name.toUpperCase()} STATS:`);
   randomStats.types.forEach((type) => {
     console.log(`${type.name}: ${type.athletes[0].stat}`);
   });
