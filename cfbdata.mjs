@@ -7,8 +7,6 @@ import { getRandomYear } from "./utils.mjs";
 // const { argv } = yargs(process.argv);
 dotenv.config();
 
-console.log(process.env.TOKEN);
-
 const baseUrl = "https://api.collegefootballdata.com/";
 const fetchOptions = {
   headers: {
