@@ -1,0 +1,19 @@
+{
+  "name": "cfbdata-cli",
+  "version": "1.0.0",
+  "description": "CFB Data command line.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "cfbdata": "random-player-stats"
+  },
+  "author": "rrascon",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "node-fetch": "^3.2.6",
+    "yargs": "^17.5.1"
+  }
+}
