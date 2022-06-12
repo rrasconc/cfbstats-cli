@@ -44,7 +44,9 @@ try {
   );
   const playerData = await playerRes.json();
 
-  console.log(`(${playerData[0]?.position}) ${playersName} 🏈\n`);
+  console.log(
+    `${randomTeam.school} (${playerData[0]?.position}) ${playersName} 🏈\n`
+  );
   console.log(`${randomStats.name.toUpperCase()} STATS:`);
   randomStats.types.forEach((type) => {
     console.log(`${type.name}: ${type.athletes[0].stat}`);
